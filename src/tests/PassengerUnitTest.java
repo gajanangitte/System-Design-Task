@@ -33,9 +33,6 @@ public class PassengerUnitTest extends TestCase {
 
     @Test
     public void testCheckBasicParams() throws Exception {
-        assertEquals(0, this.passengerStandard.getPassengerId());
-        assertEquals(1, this.passengerGold.getPassengerId());
-        assertEquals(2, this.passengerPremium.getPassengerId());
 
         assertEquals("PassS", this.passengerStandard.getName());
         assertEquals("PassG", this.passengerGold.getName());
