@@ -42,13 +42,14 @@ public class Activity{
      * @param int currentTourists the number of passengers enlisted
      * @return null
      */ 
-    Activity(String name, String description, Destination destination, int price, int capacity){
+    public Activity(String name, String description, Destination destination, int price, int capacity){
         this.name = name;
         this.description = description;
         this.destination = destination;
         this.price = price;
         this.capacity = capacity;
         this.currentTourists = 0;
+        this.passengers = new Vector<Passenger>();
     }
 
     /** 
@@ -60,13 +61,14 @@ public class Activity{
      * @param int currentTourists the number of passengers enlisted
      * @return null
      */
-    Activity(String name, String description,  Destination destination, int price, int capacity, int currentTourists){
+    public Activity(String name, String description,  Destination destination, int price, int capacity, int currentTourists){
         this.name = name;
         this.description = description;
         this.destination = destination;
         this.price = price;
         this.capacity = capacity;
         this.currentTourists = currentTourists;
+        this.passengers = new Vector<Passenger>();
     }
 
     /** 
@@ -79,7 +81,7 @@ public class Activity{
      * @param Vector<Passenger> passengers the passengers that will attend the activity
      * @return null
      */
-    Activity(String name, String description, Destination destination, int price, int capacity, int currentTourists, Vector<Passenger> passengers){
+    public Activity(String name, String description, Destination destination, int price, int capacity, int currentTourists, Vector<Passenger> passengers){
         this.name = name;
         this.description = description;
         this.destination = destination;
@@ -162,6 +164,15 @@ public class Activity{
      */
     public void setDestination(Destination destination) {
         this.destination = destination;
+    }
+
+    /** 
+     * Method to check a passenger for the activity
+     * @param passenger
+     * @return null
+     */
+    public boolean isPassenger(Passenger passenger) {
+        return this.passengers.contains(passenger);
     }
 
     

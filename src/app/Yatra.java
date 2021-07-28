@@ -13,16 +13,16 @@ public class Yatra {
     /**
      * {@code int numberOfPassengers} is the number of users in the systems
      */
-    int numberOfPassengers = 0;
+    static int numberOfPassengers = 0;
 
     
     /** 
      * This method is called to get the number of total passengers in the system.
      * @return int
      */
-    int getNumberOfPassengerId() {
-        this.numberOfPassengers++;
-        return this.numberOfPassengers;
+    public static int getPassengerId() {
+        numberOfPassengers++;
+        return numberOfPassengers;
     }
 
     

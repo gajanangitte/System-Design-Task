@@ -32,6 +32,7 @@ public class Destination {
     public Destination(String name, String description) {
         this.name = name;
         this.description = description;
+        this.activities = new Vector<Activity>();
     }
 
     /** 

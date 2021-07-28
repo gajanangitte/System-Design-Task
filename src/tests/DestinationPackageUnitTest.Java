@@ -27,7 +27,7 @@ public class DestinationPackageUnitTest extends TestCase {
 
     @Test
     public void testActivityFeature() throws Exception {
-        Activity activity2 = new Activity("Act1", "DescAct1", this, 0, 10 );
+        Activity activity1 = new Activity("Act1", "DescAct1", this, 0, 10 );
         this.destination.addActivity(activity1);
         assertEquals(true, this.travelPackage.findActivity(activity1));
 

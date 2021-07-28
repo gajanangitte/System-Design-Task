@@ -1,5 +1,6 @@
 package app;
 import java.util.Vector;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
 * The Passenger class contains all the travel details
@@ -24,6 +25,7 @@ public class Passenger {
      * {@code Vector<Activity> activities} activities by the passenger.
      * 
     */
+    private static final AtomicInteger count = new AtomicInteger(0);
     private String name;
     private int passengerId;
     private double balance;
@@ -40,6 +42,7 @@ public class Passenger {
      * @return null
      */ 
     public Passenger(String name, String membershipType) {
+        this.passengerId = count.getAndIncrement();
         this.name = name;
         this.membershipType = membershipType;
         this.balance = 0;
@@ -54,6 +57,7 @@ public class Passenger {
      * @return null
      */ 
     public Passenger(String name, String membershipType, double balance) {
+        this.passengerId = count.getAndIncrement();
         this.name = name;
         this.balance = balance;
         this.membershipType = membershipType;
@@ -69,7 +73,8 @@ public class Passenger {
      * @param Vector<Activity> activities the activities of passengers enlisted
      * @return null
      */ 
-    Passenger(String name, double balance, String membershipType, Vector<Activity> activities) {
+    Passenger(String name, String membershipType, double balance, Vector<Activity> activities) {
+        this.passengerId = count.getAndIncrement();
         this.name = name;
         this.balance = balance;
         this.membershipType = membershipType;
@@ -86,7 +91,8 @@ public class Passenger {
      * @param Vector<TravelPackage> travel packages of the activities the passengers enlisted in
      * @return null
      */ 
-    Passenger(String name, double balance, String membershipType, Vector<Activity> activities, Vector<TravelPackage> travelPackages) {
+    Passenger(String name, String membershipType, double balance,  Vector<Activity> activities, Vector<TravelPackage> travelPackages) {
+        this.passengerId = count.getAndIncrement();
         this.name = name;
         this.balance = balance;
         this.membershipType = membershipType;
@@ -101,6 +107,14 @@ public class Passenger {
      */
     public String getName() {
         return this.name;
+    }
+
+    /** 
+     * Method to get the membershipType of the passenger
+     * @return String
+     */
+    public String getMembershipType() {
+        return this.membershipType;
     }
 
     
@@ -118,8 +132,6 @@ public class Passenger {
      * @return double
      */
     public double getBalance() {
-        if (this.membershipType == "PREMIUM")
-            return Integer.MAX_VALUE;
         return this.balance;
     }
 
@@ -150,9 +162,25 @@ public class Passenger {
 
     /** 
      * Method to display all the activities of the passenger
+     * @return Vector<Activity>
+     */
+    public Vector<Activity> getActivities() {
+        return this.activities;
+    }
+
+    /** 
+     * Method to display all the packages of the passenger
+     * @return Vector<Activity>
+     */
+    public Vector<TravelPackage> getTravelPackages() {
+        return this.travelPackages;
+    }
+
+    /** 
+     * Method to display all the activities of the passenger
      * @return null
      */
-    public void getActivities() {
+    public void showActivities() {
         for(Activity activity : this.activities) {
             System.out.println(activity);
         }
@@ -198,7 +226,7 @@ public class Passenger {
      * Method to sign Up for an activity if the passenger has enrolled in the travel packages and has sufficient balance
      * @param activity
      */
-    public void signUp(Activity activity) {
+    public boolean signUp(Activity activity) {
 
         boolean activityFound = false;
         for(TravelPackage travelPackages : travelPackages) {
@@ -208,11 +236,11 @@ public class Passenger {
         if(activityFound) { 
             if(this.activities.contains(activity)) {
                 System.out.println("Activity Already Signed Up for!");
-                return;
+                return false;
             } 
             if(activity.getCapacity() == activity.getTourists()) {
                 System.out.println("Activity Full");
-                return;
+                return false;
             }
             double price;
             if(this.membershipType == "PREMIUM") {
@@ -232,10 +260,12 @@ public class Passenger {
             else {
                 System.out.println("Insufficient Balance");
             }
-            return;
+            return false;
         } else {
             System.out.println("No Destination for Activity in Travel Packages");
         }
+
+        return true;
     }
     
 }
