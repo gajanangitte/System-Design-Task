@@ -1,3 +1,4 @@
+package app;
 import java.util.Hashtable;
 
 public class Yatra {
