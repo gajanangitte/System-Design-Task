@@ -42,8 +42,9 @@ public class Activity{
      * @param int currentTourists the number of passengers enlisted
      * @return null
      */ 
-    Activity(String name, Destination destination, int price, int capacity){
+    Activity(String name, String description, Destination destination, int price, int capacity){
         this.name = name;
+        this.description = description;
         this.destination = destination;
         this.price = price;
         this.capacity = capacity;
@@ -59,8 +60,9 @@ public class Activity{
      * @param int currentTourists the number of passengers enlisted
      * @return null
      */
-    Activity(String name, Destination destination, int price, int capacity, int currentTourists){
+    Activity(String name, String description,  Destination destination, int price, int capacity, int currentTourists){
         this.name = name;
+        this.description = description;
         this.destination = destination;
         this.price = price;
         this.capacity = capacity;
@@ -77,8 +79,9 @@ public class Activity{
      * @param Vector<Passenger> passengers the passengers that will attend the activity
      * @return null
      */
-    Activity(String name, Destination destination, int price, int capacity, int currentTourists, Vector<Passenger> passengers){
+    Activity(String name, String description, Destination destination, int price, int capacity, int currentTourists, Vector<Passenger> passengers){
         this.name = name;
+        this.description = description;
         this.destination = destination;
         this.price = price;
         this.capacity = capacity;

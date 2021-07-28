@@ -35,10 +35,13 @@ public class TravelPackage {
      * @param int packageCost the cost of the package to be created
      * @return null
      */
-    TravelPackage(String packageName, String description, int passengerCapacity, int packageCost) {
+    public TravelPackage(String packageName, String description, int packageCost,  int passengerCapacity) {
         this.packageName = packageName;
         this.description = description;
         this.packageCost = packageCost;
+        this.passengerCapacity = passengerCapacity;
+        this.destinations = new Vector<Destination>();
+        this.passengers = new Vector<Passenger>();
     }
 
     /** 
@@ -49,11 +52,12 @@ public class TravelPackage {
      * @param Vector<Destination> destinations the destinations in the package to be created
      * @return null
      */
-    TravelPackage(String packageName, String description, int passengerCapacity, int packageCost, Vector<Destination> destinations) {
+    public TravelPackage(String packageName, String description, int passengerCapacity, int packageCost, Vector<Destination> destinations) {
         this.packageName = packageName;
         this.description = description;
         this.packageCost = packageCost;
         this.destinations = destinations;
+        this.passengers = new Vector<Passenger>();
     }
     
      /** 
@@ -65,7 +69,7 @@ public class TravelPackage {
      * @param Vector<Passenger> passengers the passengers in the package to be created
      * @return null
      */
-    TravelPackage(String packageName, String description, int passengerCapacity, int packageCost, Vector<Destination> destinations, Vector<Passenger> passengers) {
+    public TravelPackage(String packageName, String description, int passengerCapacity, int packageCost, Vector<Destination> destinations, Vector<Passenger> passengers) {
         this.packageName = packageName;
         this.description = description;
         this.packageCost = packageCost;
@@ -109,6 +113,29 @@ public class TravelPackage {
         return this.passengerCapacity;
     }
 
+    /** 
+     * Method to get the package's cost
+     * @return int
+     */
+    public int getPackageCost() {
+        return this.packageCost;
+    }
+
+    /** 
+     * Method to get the package's description
+     * @return String
+     */
+    public String getDescription() {
+        return this.description;
+    }
+
+    /** 
+     * Method to get the package's destinations
+     * @return Vector<Destination>
+     */
+    public Vector<Destination> getDestinations() {
+        return this.destinations;
+    }
     
     /** 
      * Method to get the package's passengers
@@ -135,6 +162,7 @@ public class TravelPackage {
      * @return null
      */
     public void addPassenger(Passenger passenger) {
+        passenger.signUp(this);
         this.passengers.add(passenger);
     }
 

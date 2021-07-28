@@ -17,7 +17,6 @@ public class Destination {
      * Variables
      * {@code String name} is the name of the destination.
      * {@code String description} is the description of the destination.
-     * {@code Vector<Passenger> passengers} passengers available in the package
     */
     private String name;
     private String description;
@@ -30,7 +29,7 @@ public class Destination {
      * @param int packageCost the cost of the destination to be created
      * @return null
      */    
-    Destination(String name, String description) {
+    public Destination(String name, String description) {
         this.name = name;
         this.description = description;
     }
@@ -42,12 +41,27 @@ public class Destination {
      * @param int packageCost the cost of the destination to be created
      * @return null
      */    
-    Destination(String name,  String description, Vector<Activity> activities) {
+    public Destination(String name,  String description, Vector<Activity> activities) {
         this.name = name;
         this.description = description;
         this.activities = activities;
     }
 
+    /** 
+     * Method to get the destination's name
+     * @return String
+     */
+    public String getDestinationName() {
+        return this.name;
+    }
+
+    /** 
+     * Method to get the destination's description
+     * @return String
+     */
+    public String getDescription() {
+        return this.description;
+    }
     
     /** 
      * Method to add a new activity to a list of activities

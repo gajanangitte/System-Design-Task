@@ -1,5 +1,4 @@
 package app;
-import java.util.Hashtable;
 
 /**
 * The Yatra file implements the interface for
@@ -11,7 +10,9 @@ import java.util.Hashtable;
 */
 public class Yatra {
 
-    public Hashtable<String, Double> membershipType = new Hashtable<String, Double>();
+    /**
+     * {@code int numberOfPassengers} is the number of users in the systems
+     */
     int numberOfPassengers = 0;
 
     

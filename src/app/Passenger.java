@@ -39,7 +39,7 @@ public class Passenger {
      * @param Vector<Activity> activities the activities of passengers enlisted
      * @return null
      */ 
-    Passenger(String name, String membershipType) {
+    public Passenger(String name, String membershipType) {
         this.name = name;
         this.membershipType = membershipType;
         this.balance = 0;
@@ -53,7 +53,7 @@ public class Passenger {
      * @param double balance the BALANCE of the passenger to be created
      * @return null
      */ 
-    Passenger(String name, double balance, String membershipType) {
+    public Passenger(String name, String membershipType, double balance) {
         this.name = name;
         this.balance = balance;
         this.membershipType = membershipType;
