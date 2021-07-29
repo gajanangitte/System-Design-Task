@@ -11,7 +11,14 @@ import app.Destination;
 import app.Passenger;
 import app.TravelPackage;
 
-
+/**
+* Unit test file for TravelPackage class
+* 
+*
+* @author  Apricot
+* @version 1.0
+* @since   2020-07-28
+*/
 
 public class TravelPackageUnitTest extends TestCase {
     private TravelPackage travelPackage;

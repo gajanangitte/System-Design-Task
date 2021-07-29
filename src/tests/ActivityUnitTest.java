@@ -12,7 +12,14 @@ import app.Passenger;
 import app.Activity;
 
 
-
+/**
+* Unit test file for Activity class
+* 
+*
+* @author  Apricot
+* @version 1.0
+* @since   2020-07-28
+*/
 public class ActivityUnitTest extends TestCase {
     private Activity activity;
     private Destination destination;

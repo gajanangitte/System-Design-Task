@@ -9,7 +9,14 @@ import org.junit.Test;
 
 import app.Destination;
 import app.Activity;
-
+/**
+* Unit test file for Destination class
+* 
+*
+* @author  Apricot
+* @version 1.0
+* @since   2020-07-28
+*/
 public class DestinationPackageUnitTest extends TestCase {
     private Destination destination;
 
